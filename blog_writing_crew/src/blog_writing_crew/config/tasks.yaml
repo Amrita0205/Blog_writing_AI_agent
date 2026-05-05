@@ -1,0 +1,47 @@
+research_task:
+  description: >
+    Conduct a thorough research about {topic}
+    Make sure you find any interesting and relevant information given
+    the current year is {current_year}.
+  expected_output: >
+    A list with 10 bullet points of the most relevant information about {topic}
+  agent: researcher
+writing_task:
+  description: >
+    Using the research brief provided, write an engaging blog post
+    about {topic}. The post should have a compelling introduction,
+    3-4 well-structured main sections, and a strong conclusion.
+    Make it informative yet accessible to a general audience.
+  expected_output: >
+    A complete blog post in markdown format, approximately 800-1000
+    words, with an engaging title, introduction, 3-4 main sections
+    with subheadings, and a conclusion.
+  agent: writer
+editing_task:
+  description: >
+    Review and polish the blog post for clarity, grammar, flow,
+    and engagement. Ensure the tone is consistent, the structure
+    is logical, and the content is compelling. Fix any errors
+    and improve readability.
+  expected_output: >
+    A final, polished blog post in markdown format ready for
+    publication. The post should be well-structured, error-free,
+    and engaging.
+  agent: editor
+  output_file: output/blog_post.md
+social_media_task:
+  description: >
+    Using the polished blog post from the previous task, create social media
+    content for two platforms:
+
+    1. A Twitter/X thread of 5-7 tweets that captures the key points
+       of the blog post. The first tweet should hook the reader, and
+       the thread should flow naturally from one tweet to the next.
+    2. A LinkedIn post summary (2-3 paragraphs) that highlights the
+       main takeaways in a professional tone.
+  expected_output: >
+    A markdown file with two sections: a Twitter/X thread (5-7 numbered
+    tweets, each under 280 characters) and a LinkedIn post summary
+    (2-3 paragraphs).
+  agent: social_media_manager
+  output_file: output/social_posts.md
