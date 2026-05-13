@@ -1,0 +1,137 @@
+research_task:
+  description: >
+    Conduct deep, multi-angle research on the following topic:
+
+    "{topic}"
+
+    The current year is {current_year}. Your research must cover:
+
+    1. POLICY REALITY — What do actual hostel curfew rules look like
+       across Indian universities (IITs, NITs, state universities,
+       private colleges)? What is the official justification?
+
+    2. THE DOUBLE STANDARD — Document specific contrasts: how are
+       foreign/exchange students (especially women) treated differently
+       on the same campuses? Why does "safety" apply only to Indian women?
+
+    3. CRIME DATA vs. RESTRICTION DATA — Does restricting Indian women
+       inside hostels actually reduce crimes against them? Cite NCRB
+       data, campus safety reports, or expert criminologist opinions.
+
+    4. ROOT CAUSE — What does the Indian administrative mindset reveal
+       about how women are viewed: as citizens to be protected, or as
+       wards to be controlled?
+
+    5. GLOBAL COMPARISON — How do universities in the UK, US, Germany,
+       Australia handle women's safety without curfews?
+
+    6. VOICES — Real student accounts, viral incidents, protests,
+       petitions. Include at least 2-3 specific documented cases.
+
+    7. LEGAL & CONSTITUTIONAL ANGLE — Does hostel curfew violate
+       Article 14 (equality) or Article 21 (personal liberty)?
+
+    8. ECONOMIC COST — How does restricted mobility limit Indian women's
+       networking, internship access, and career growth vs. male peers?
+
+    9. PSYCHOLOGICAL IMPACT — What does living under surveillance and
+       curfew do to a young woman's confidence and sense of agency?
+
+    10. WHAT NEEDS TO CHANGE — Concrete policy alternatives that
+        address safety without punishing freedom.
+
+  expected_output: >
+    A structured research brief with 10 bullet points — each one a
+    punchy, evidence-backed insight with specific data points, incident
+    names, policy references, or expert quotes where available.
+    Each bullet should be 2-4 sentences, substantive, and ready to
+    become a section of a powerful blog post.
+  agent: researcher
+
+writing_task:
+  description: >
+    Using the research brief provided, write a bold, emotionally
+    resonant, and argument-driven blog post about {topic}.
+
+    The post must:
+    - Open with a scene or incident that immediately creates empathy
+      (e.g., a girl watching exchange students leave campus freely
+      while she is locked in at 6 PM)
+    - Have a compelling title that could trend (think: "India Locks
+      Its Daughters In — And Calls It Safety")
+    - Build the argument systematically: personal to systemic to global
+      to legal to solutions
+    - Include 3-4 main sections with punchy subheadings
+    - Weave in specific data, real incidents, and human voices
+    - End with a call to action — for students, parents, policymakers
+    - Tone: Controlled fury. Authoritative. Empathetic. Not whiny —
+      powerful.
+    - Avoid: victimhood framing, vague generalisations, preachy tone
+
+  expected_output: >
+    A complete blog post in markdown format, 900-1100 words.
+    Structure: Title, Introduction (hook scene + thesis), 3-4 sections
+    with bold subheadings, Conclusion with call to action.
+    The post must feel like it was written by someone who has LIVED
+    this — and who wants systemic change, not sympathy.
+  agent: writer
+
+editing_task:
+  description: >
+    Review and sharpen the blog post on {topic} for maximum impact.
+
+    Your editing checklist:
+    - Is the opening hook irresistible? If not, rewrite it.
+    - Is every claim defensible? Flag anything that could be legally
+      challenged or easily dismissed as anecdote.
+    - Is the argument airtight? Does it build logically?
+    - Are there any weak paragraphs that undercut the power?
+    - Is the tone consistent — fierce but fair, not a rant?
+    - Does the conclusion drive the reader to act?
+    - Grammar, clarity, and flow throughout.
+
+    Polish ruthlessly. Cut anything that dilutes the message.
+    Strengthen anything that makes the reader stop and think.
+
+  expected_output: >
+    A final, publication-ready blog post in markdown format.
+    Error-free, tightly argued, emotionally powerful, and structured
+    for maximum shareability. This should be ready to post on Medium,
+    Substack, or a national publication.
+  agent: editor
+
+social_media_task:
+  description: >
+    Using the polished blog post, create high-impact social media
+    content for two platforms:
+
+    TWITTER/X THREAD (6-8 tweets):
+    - Tweet 1: A jaw-dropping hook stat or scene (no "thread" label,
+      just pure impact). Must make someone stop scrolling.
+    - Tweets 2-6: Each covers one key argument from the blog —
+      double standards, crime data myth, constitutional angle,
+      global comparison, economic cost
+    - Tweet 7: The call to action — tag a college, share, demand change
+    - Each tweet under 280 characters. Use line breaks for readability.
+    - Emojis: strategic, not decorative. 1-2 per tweet max.
+    - Hashtags: 2-3 relevant ones at the end of the thread only.
+
+    LINKEDIN POST (2-3 paragraphs):
+    - Paragraph 1: Open with a professional framing of the injustice
+      (this affects talent pipelines, India's global competitiveness,
+      constitutional rights)
+    - Paragraph 2: The systemic argument — what the policy reveals,
+      what the data shows
+    - Paragraph 3: A call to educators, HR leaders, policymakers to
+      act — end with a specific ask
+    - Tone: Sharp, professional, not preachy. Think: TED talk, not protest.
+    - Include 4-5 relevant LinkedIn hashtags at the end.
+
+  expected_output: >
+    A markdown file with two clearly labelled sections:
+    Section 1 — TWITTER/X THREAD (6-8 numbered tweets, each 280 chars max)
+    Section 2 — LINKEDIN POST (2-3 paragraphs + hashtags)
+
+    Both pieces must feel native to their platform and be ready to
+    copy-paste and post immediately.
+  agent: social_media_manager
