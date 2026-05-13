@@ -1,61 +1,97 @@
-# BlogWritingCrew Crew
+# Blog Writing Crew
 
-Welcome to the BlogWritingCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+A multi-agent AI crew that researches, writes, edits, and creates social media content for blog posts — powered by CrewAI and Groq (llama-3.3-70b-versatile).
 
-## Installation
+## Agents
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+| Agent                          | Role                                                             |
+| ------------------------------ | ---------------------------------------------------------------- |
+| **Researcher**           | Investigates the topic with data, incidents, and policy analysis |
+| **Writer**               | Turns research into a compelling advocacy blog post              |
+| **Editor**               | Polishes the post to publication-ready quality                   |
+| **Social Media Manager** | Creates Twitter/X threads and LinkedIn posts from the blog       |
 
-First, if you haven't already, install uv:
+## Output
 
-```bash
-pip install uv
+After running, check the `output/` folder:
+
+- `output/blog_post.md` — Final edited blog post
+- `output/social_posts.md` — Twitter thread + LinkedIn post
+
+---
+
+## Setup & Running (Windows)
+
+### Prerequisites
+
+- Python 3.10–3.12 (NOT 3.13 — crewai doesn't support it yet)
+- `uv` installed: `pip install uv`
+
+### Quick Start
+
+**Step 1 — Run setup (one time only):**
+
+```
+setup.bat
 ```
 
-Next, navigate to your project directory and install the dependencies:
+**Step 2 — Run the crew:**
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-
-```bash
-crewai install
+```
+run.bat
 ```
 
-### Customizing
+That's it. The crew will take 2–5 minutes to complete all four tasks.
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+---
 
-- Modify `src/blog_writing_crew/config/agents.yaml` to define your agents
-- Modify `src/blog_writing_crew/config/tasks.yaml` to define your tasks
-- Modify `src/blog_writing_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/blog_writing_crew/main.py` to add custom inputs for your agents and tasks
+## Why not `crewai run`?
 
-## Running the Project
+`crewai run` uses `uv` internally to manage a `.venv` and reinstalls packages each time. This breaks `litellm` (which Groq needs) because of a version conflict between `litellm` and `crewai`'s `openai` dependency.
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+The fix is to use `python run.py` directly (which `run.bat` does), with the venv set up manually via `setup.bat`. This gives you full control and avoids the conflict.
 
-```bash
-$ crewai run
+---
+
+## Changing the Topic
+
+Edit `run.py` and change the `topic` value:
+
+```python
+inputs = {
+    "topic": "Your new topic here",
+    ...
+}
 ```
 
-This command initializes the blog-writing-crew Crew, assembling the agents and assigning them tasks as defined in your configuration.
+---
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+## Project Structure
 
-## Documentation
+```
+blog_writing_crew/
+├── .env                        # Your API keys (keep private!)
+├── pyproject.toml              # Project config
+├── run.py                      # Main entry point
+├── run.bat                     # Windows one-click runner
+├── setup.bat                   # Windows one-click setup
+├── output/
+│   ├── blog_post.md            # Generated blog post
+│   └── social_posts.md         # Generated social content
+└── src/blog_writing_crew/
+    ├── crew.py                 # Crew definition
+    ├── main.py                 # CLI entry points
+    └── config/
+        ├── agents.yaml         # Agent definitions
+        └── tasks.yaml          # Task definitions
+```
 
-My Dcoumentation throughout making this.:https://learn.nextwork.org/projects/ai-crewai-blog-writing-crew?utm_source=marketing&utm_medium=nav&utm_campaign=nav_login&utm_content=login_button&track=high
+## Environment Variables (`.env`)
 
-## Understanding Your Crew
+```
+MODEL=groq/llama-3.3-70b-versatile
+GROQ_API_KEY=your_groq_api_key_here
+CREWAI_TRACING_ENABLED=false
+```
 
-The blog-writing-crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the BlogWritingCrew Crew or crewAI.
-
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+Get a free Groq API key at: https://console.groq.com
